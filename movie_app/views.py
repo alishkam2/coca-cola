@@ -3,18 +3,7 @@ from .models import Director, Movie, Review
 from .serializers import DirectorSerializer, MovieSerializer, ReviewSerializer
 
 
-class DirectorListView(generics.ListAPIView):
-    queryset = Director.objects.all()
-    serializer_class = DirectorSerializer
-
-
-class DirectorDetailView(generics.RetrieveAPIView):
-    queryset = Director.objects.all()
-    serializer_class = DirectorSerializer
-
-
-
-class MovieListView(generics.ListAPIView):
+class MovieListView(generics.ListCreateAPIView):
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
 
@@ -24,7 +13,17 @@ class MovieDetailView(generics.RetrieveAPIView):
     serializer_class = MovieSerializer
 
 
-class ReviewListView(generics.ListAPIView):
+class DirectorListView(generics.ListCreateAPIView):
+    queryset = Director.objects.all()
+    serializer_class = DirectorSerializer
+
+
+class DirectorDetailView(generics.RetrieveAPIView):
+    queryset = Director.objects.all()
+    serializer_class = DirectorSerializer
+
+
+class ReviewListView(generics.ListCreateAPIView):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
 

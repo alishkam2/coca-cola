@@ -9,8 +9,6 @@ class DirectorSerializer(serializers.ModelSerializer):
 
 
 class MovieSerializer(serializers.ModelSerializer):
-    director = DirectorSerializer()
-
     class Meta:
         model = Movie
         fields = ["id", "title", "description", "duration", "director"]
@@ -19,4 +17,4 @@ class MovieSerializer(serializers.ModelSerializer):
 class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Review
-        fields = ["id", "text", "movie"]
+        fields = ["id", "text", "movie", "stars"]
